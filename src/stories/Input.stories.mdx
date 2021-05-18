@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Input } from "../components/atoms/Input";
+
+<Meta
+  title="Components/Atoms/Input"
+  component={Input}
+  argTypes={{
+    placeholder: {
+      control: {
+        type: "text",
+      },
+    },
+    type: {
+      control: {
+        type: "radio",
+        options: ["email", "password", "text", "tel"],
+      },
+    },
+  }}
+/>
+
+# Input
+
+export const Template = (args) => <Input {...args} />;
+
+<Canvas>
+  <Story
+    name="Email input"
+    args={{ type: "email", placeholder: "username@domain.com" }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Password input"
+    args={{ type: "password", placeholder: "Password" }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

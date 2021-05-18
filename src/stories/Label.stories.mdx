@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Label } from "../components/atoms/Label";
+
+<Meta
+  title="Components/Atoms/Label"
+  component={Label}
+  argTypes={{
+    label: {
+      control: {
+        type: "text",
+      },
+    },
+  }}
+/>
+
+# Label
+
+export const Template = (args) => <Label {...args} />;
+
+<Canvas>
+  <Story name="Input label" args={{ label: "Email" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Button } from "../components/atoms/Button";
+
+<Meta
+  title="Components/Atoms/Button"
+  component={Button}
+  argTypes={{
+    text: {
+      control: {
+        type: "text",
+      },
+    },
+  }}
+/>
+
+# Button
+
+export const Template = (args) => <Button {...args} />;
+
+<Canvas>
+  <Story name="Primary" args={{ text: "Primary" }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Secondary" args={{ text: "Secondary" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

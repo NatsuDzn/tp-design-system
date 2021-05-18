@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { RegisterForm } from "../components/organisms/RegisterForm";
+
+<Meta
+  title="Components/Organisms/RegisterForm"
+  component={RegisterForm}
+/>
+
+# RegisterForm
+
+export const Template = (args) => <RegisterForm {...args} />;
+
+<Canvas>
+  <Story name="Register form">{Template.bind({})}</Story>
+</Canvas>

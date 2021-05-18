@@ -1,7 +1,7 @@
 
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
-import colors from '../../styles/const'
+import colors from '../../styles/colors'
 
 <Meta title="Documentation/Colors" />
 
@@ -10,23 +10,23 @@ import colors from '../../styles/const'
 
 ## Brand Colors
 <ColorPalette>
-  <ColorItem title="Accent" subtitle="Default" colors={[colors.accent]} />
-  <ColorItem title="Accent" subtitle="Light" colors={[colors.accentLight]} />
-  <ColorItem title="Accent" subtitle="Dark" colors={[colors.accentDarkColor]} />
+  <ColorItem title="Accent" subtitle="Default" colors={[colors.accent.base]} />
+  <ColorItem title="Accent" subtitle="Light" colors={[colors.accent.light]} />
+  <ColorItem title="Accent" subtitle="Dark" colors={[colors.accent.darker]} />
 </ColorPalette>
 
 ## Status Colors
 <ColorPalette>
-  <ColorItem title="Error" colors={[colors.status_error]} />
-  <ColorItem title="OK/Success" colors={[colors.status_ok]} />
+  <ColorItem title="Error" colors={[colors.status.error]} />
+  <ColorItem title="OK/Success" colors={[colors.status.ok]} />
 </ColorPalette>
 
 ## Text Colors
 <ColorPalette>
-  <ColorItem title="Primary" colors={[colors.text_primary]} />
+  <ColorItem title="Primary" colors={[colors.text.primary]} />
 </ColorPalette>
 
 ## Background Colors
 <ColorPalette>
-  <ColorItem title="White" colors={[colors.bg_white]} />
+  <ColorItem title="White" colors={[colors.bg.white]} />
 </ColorPalette>

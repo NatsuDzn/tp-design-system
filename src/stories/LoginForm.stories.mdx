@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { LoginForm } from "../components/organisms/LoginForm";
+
+<Meta
+  title="Components/Organisms/LoginForm"
+  component={LoginForm}
+/>
+
+# LoginForm
+
+export const Template = (args) => <LoginForm {...args} />;
+
+<Canvas>
+  <Story name="Login form">{Template.bind({})}</Story>
+</Canvas>

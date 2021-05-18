@@ -1,0 +1,61 @@
+
+import { Meta,} from '@storybook/addon-docs/blocks';
+
+import font from '../../styles/font'
+
+<Meta title="Documentation/Text" />
+
+<style>{`
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,700');
+
+* {
+  font-family: ${font.family.base} !important;
+  font-weight: ${font.weight.regular};
+  line-height: 1.75 !important;
+}
+
+.size__mentions {
+  font-size: ${font.size.mentions}px;
+  text-transform: uppercase;
+}
+
+.size__button {
+  font-size: ${font.size.button}px;
+}
+
+.size__text {
+  font-size: ${font.size.text}px;
+}
+
+.size__s{
+  font-size: ${font.size.s}px;
+  font-weight: ${font.weight.bold};
+}
+
+.size__m{
+  font-size: ${font.size.m}px;
+  font-weight: ${font.weight.bold};
+}
+
+.size__l{
+  font-size: ${font.size.l}px;
+  font-weight: ${font.weight.bold};
+}
+
+.size__xl{
+  font-size: ${font.size.xl}px;
+  font-weight: ${font.weight.bold};
+}
+`}</style>
+
+# Fonts
+<br />
+
+<p class="size__mentions">Mentions</p>
+<p class="size__button">Button</p>
+<p class="size__text">Text</p>
+<p class="size__s">Small heading</p>
+<p class="size__m">Medium heading</p>
+<p class="size__l">Large heading</p>
+<p class="size__xl">Extra Large heading</p>
