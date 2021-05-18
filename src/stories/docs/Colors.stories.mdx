@@ -1,0 +1,32 @@
+
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+import colors from '../../styles/const'
+
+<Meta title="Documentation/Colors" />
+
+# Colors
+<br />
+
+## Brand Colors
+<ColorPalette>
+  <ColorItem title="Accent" subtitle="Default" colors={[colors.accent]} />
+  <ColorItem title="Accent" subtitle="Light" colors={[colors.accentLight]} />
+  <ColorItem title="Accent" subtitle="Dark" colors={[colors.accentDarkColor]} />
+</ColorPalette>
+
+## Status Colors
+<ColorPalette>
+  <ColorItem title="Error" colors={[colors.status_error]} />
+  <ColorItem title="OK/Success" colors={[colors.status_ok]} />
+</ColorPalette>
+
+## Text Colors
+<ColorPalette>
+  <ColorItem title="Primary" colors={[colors.text_primary]} />
+</ColorPalette>
+
+## Background Colors
+<ColorPalette>
+  <ColorItem title="White" colors={[colors.bg_white]} />
+</ColorPalette>
