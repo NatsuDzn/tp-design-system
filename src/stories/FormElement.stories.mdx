@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import { LabelInput } from "../components/molecules/LabelInput";
+import { FormElement } from "../components/molecules/FormElement";
 
 <Meta
-  title="Components/Atoms/LabelInput"
-  component={LabelInput}
+  title="Components/molecules/FormElement"
+  component={FormElement}
   argTypes={{
     placeholder: {
       control: {
@@ -29,9 +29,9 @@ import { LabelInput } from "../components/molecules/LabelInput";
   }}
 />
 
-# LabelInput
+# FormElement
 
-export const Template = (args) => <LabelInput {...args} />;
+export const Template = (args) => <FormElement {...args} />;
 
 <Canvas>
   <Story

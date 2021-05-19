@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Text } from "../components/atoms/Text";
+
+<Meta
+  title="Components/Atoms/Text"
+  component={Text}
+  argTypes={{
+    text: {
+      control: {
+        type: "text",
+      },
+    },
+    tag: {
+      control: {
+        type: "select",
+        options: ["h1", "h2", "h3", "h4", "p", "small"],
+      },
+    },
+    color: { control: 'color' },
+  }}
+/>
+
+# Text
+
+export const Template = (args) => <Text {...args} />;
+
+<Canvas>
+  <Story name="Text " args={{ text: "Example", tag: "h1", color: "#000000" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

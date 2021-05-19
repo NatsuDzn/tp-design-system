@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LabelInput } from "../molecules/LabelInput";
+import { FormElement } from "../molecules/FormElement";
 import { Button } from "../atoms/Button";
 
 export const LoginForm = () => {
@@ -11,12 +11,12 @@ export const LoginForm = () => {
         Vous n'avez pas encore de compte ? <a>Inscrivez-vous</a>
       </div>
       <form>
-        <LabelInput
+        <FormElement
           type="email"
           placeholder="username@domain.com"
           label="Email"
         />
-        <LabelInput type="password" placeholder="Password" label="Password" />
+        <FormElement type="password" placeholder="Password" label="Password" />
       </form>
       <div>
         Vous avez oublié votre mot de passe ?{" "}

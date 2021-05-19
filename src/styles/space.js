@@ -10,10 +10,6 @@ const space = {
     xxl: 32,
     xxxl: 36,
   },
-  // padding: {
-  //   horizontal: 24,
-  //   vertical: 12
-  // }
 };
 
 
