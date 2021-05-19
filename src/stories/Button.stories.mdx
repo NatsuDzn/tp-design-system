@@ -10,6 +10,12 @@ import { Button } from "../components/atoms/Button";
         type: "text",
       },
     },
+    icon: {
+      control: {
+        type: "select",
+        options: ["loading", "user", "gear"],
+      },
+    },
     disabled: {
       control: {
         type: "boolean",
@@ -33,16 +39,60 @@ import { Button } from "../components/atoms/Button";
 export const Template = (args) => <Button {...args} />;
 
 <Canvas>
-  <Story name="Primary" args={{ text: "Primary", disabled: false, isPrimary: true, isLoading: false }}>
+  <Story
+    name="Primary"
+    args={{
+      text: "Primary",
+      disabled: false,
+      isPrimary: true,
+      isLoading: false,
+    }}
+  >
     {Template.bind({})}
   </Story>
-  <Story name="Secondary" args={{ text: "Secondary", disabled: false, isPrimary: false, isLoading: false }}>
+  <Story
+    name="Secondary"
+    args={{
+      text: "Secondary",
+      disabled: false,
+      isPrimary: false,
+      isLoading: false,
+    }}
+  >
     {Template.bind({})}
   </Story>
-    <Story name="Loading" args={{ text: "Loading", disabled: false, isPrimary: true, isLoading: true }}>
+  <Story
+    name="Button with Icon"
+    args={{
+      text: "Icons",
+      disabled: false,
+      isPrimary: true,
+      isLoading: false,
+      icon: "user",
+    }}
+  >
     {Template.bind({})}
   </Story>
-    <Story name="Disabled" args={{ text: "Disabled", disabled: true, isPrimary: false, isLoading: false }}>
+  <Story
+    name="Loading"
+    args={{
+      text: "Loading",
+      disabled: false,
+      isPrimary: true,
+      isLoading: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Disabled"
+    args={{
+      text: "Disabled",
+      disabled: true,
+      isPrimary: false,
+      isLoading: false,
+    }}
+  >
     {Template.bind({})}
   </Story>
 </Canvas>

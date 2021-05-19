@@ -1,10 +1,38 @@
 import React from "react";
 import styled from "styled-components";
+import Icon from "../atoms/Icon";
 import colors from "../../styles/colors";
 import font from "../../styles/font";
 import space from "../../styles/space";
+import icons from "../../styles/icons";
 
-export const Button = ({ text, disabled, isPrimary, isLoading }) => {
+export const Button = ({ text, disabled, isPrimary, isLoading, icon }) => {
+  if (icon) {
+    return (
+      <ButtonStyled
+        disabled={disabled}
+        isPrimary={isPrimary}
+        isLoading={isLoading}
+      >
+        <Icon icon={handleIcon(icon)} />
+        {text}
+      </ButtonStyled>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <ButtonStyled
+        disabled={disabled}
+        isPrimary={isPrimary}
+        isLoading={isLoading}
+      >
+        <Icon icon={handleIcon("loading")} />
+        {text}
+      </ButtonStyled>
+    );
+  }
+
   return (
     <ButtonStyled
       disabled={disabled}
@@ -17,11 +45,15 @@ export const Button = ({ text, disabled, isPrimary, isLoading }) => {
 };
 
 const ButtonStyled = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   outline: 0;
   border: 0;
   background: ${(prop) =>
     prop.isPrimary ? colors.accent.base : "transparent"};
   color: ${(prop) => (prop.isPrimary ? colors.text.white : colors.accent.base)};
+  fill: ${(prop) => (prop.isPrimary ? colors.text.white : colors.accent.base)};
   padding: ${space.measurement.xs}px ${space.measurement.lg}px;
   border-radius: ${space.measurement.xxs}px;
   font-size: ${font.size.text}px;
@@ -41,6 +73,7 @@ const ButtonStyled = styled.button`
   &:active {
     background: ${colors.accent.darker};
     color: ${colors.text.white};
+    fill: ${colors.text.white};
     transform: scale(0.95) !important;
   }
 
@@ -53,8 +86,22 @@ const ButtonStyled = styled.button`
     background: ${colors.status.disabled};
     border: none;
     color: ${colors.text.white};
+    fill: ${colors.text.white};
     pointer-events: none;
   }
 `;
+
+function handleIcon(icon) {
+  switch (icon) {
+    case "loading":
+      return icons.loading;
+    case "user":
+      return icons.user;
+    case "gear":
+      return icons.gear;
+    default:
+      return `${font.size.text}px`;
+  }
+}
 
 export default Button;
