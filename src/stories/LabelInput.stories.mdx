@@ -21,6 +21,11 @@ import { LabelInput } from "../components/molecules/LabelInput";
         type: "text",
       },
     },
+    isValid: {
+      control: {
+        type: "boolean",
+      },
+    },
   }}
 />
 
@@ -31,7 +36,7 @@ export const Template = (args) => <LabelInput {...args} />;
 <Canvas>
   <Story
     name="Label input"
-    args={{ type: "email", placeholder: "username@domain.com", label: "Email" }}
+    args={{ type: "email", placeholder: "username@domain.com", label: "Email", isValid: true }}
   >
     {Template.bind({})}
   </Story>

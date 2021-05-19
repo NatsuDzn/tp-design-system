@@ -9,7 +9,6 @@ const font = {
   },
   size: {
     mentions: 12,
-    button: 14,
     text: 16,
     s: 20,
     m: 24,

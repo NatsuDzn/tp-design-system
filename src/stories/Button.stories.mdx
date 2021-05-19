@@ -10,6 +10,21 @@ import { Button } from "../components/atoms/Button";
         type: "text",
       },
     },
+    disabled: {
+      control: {
+        type: "boolean",
+      },
+    },
+    isPrimary: {
+      control: {
+        type: "boolean",
+      },
+    },
+    isLoading: {
+      control: {
+        type: "boolean",
+      },
+    },
   }}
 />
 
@@ -18,10 +33,16 @@ import { Button } from "../components/atoms/Button";
 export const Template = (args) => <Button {...args} />;
 
 <Canvas>
-  <Story name="Primary" args={{ text: "Primary" }}>
+  <Story name="Primary" args={{ text: "Primary", disabled: false, isPrimary: true, isLoading: false }}>
     {Template.bind({})}
   </Story>
-  <Story name="Secondary" args={{ text: "Secondary" }}>
+  <Story name="Secondary" args={{ text: "Secondary", disabled: false, isPrimary: false, isLoading: false }}>
+    {Template.bind({})}
+  </Story>
+    <Story name="Loading" args={{ text: "Loading", disabled: false, isPrimary: true, isLoading: true }}>
+    {Template.bind({})}
+  </Story>
+    <Story name="Disabled" args={{ text: "Disabled", disabled: true, isPrimary: false, isLoading: false }}>
     {Template.bind({})}
   </Story>
 </Canvas>

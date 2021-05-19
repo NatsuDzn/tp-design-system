@@ -16,6 +16,11 @@ import { Input } from "../components/atoms/Input";
         options: ["email", "password", "text", "tel"],
       },
     },
+    isValid: {
+      control: {
+        type: "boolean",
+      },
+    },
   }}
 />
 
@@ -26,13 +31,13 @@ export const Template = (args) => <Input {...args} />;
 <Canvas>
   <Story
     name="Email input"
-    args={{ type: "email", placeholder: "username@domain.com" }}
+    args={{ type: "email", placeholder: "username@domain.com", isValid: true }}
   >
     {Template.bind({})}
   </Story>
   <Story
     name="Password input"
-    args={{ type: "password", placeholder: "Password" }}
+    args={{ type: "password", placeholder: "Password", isValid: true }}
   >
     {Template.bind({})}
   </Story>

@@ -1,14 +1,15 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
 
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
-
-import colors from '../../styles/colors'
+import colors from "../../styles/colors";
 
 <Meta title="Documentation/Colors" />
 
 # Colors
+
 <br />
 
 ## Brand Colors
+
 <ColorPalette>
   <ColorItem title="Accent" subtitle="Default" colors={[colors.accent.base]} />
   <ColorItem title="Accent" subtitle="Light" colors={[colors.accent.light]} />
@@ -16,17 +17,22 @@ import colors from '../../styles/colors'
 </ColorPalette>
 
 ## Status Colors
+
 <ColorPalette>
   <ColorItem title="Error" colors={[colors.status.error]} />
   <ColorItem title="OK/Success" colors={[colors.status.ok]} />
+  <ColorItem title="Disabled" colors={[colors.status.disabled]} />
 </ColorPalette>
 
 ## Text Colors
+
 <ColorPalette>
   <ColorItem title="Primary" colors={[colors.text.primary]} />
+  <ColorItem title="White" colors={[colors.text.white]} />
 </ColorPalette>
 
 ## Background Colors
+
 <ColorPalette>
   <ColorItem title="White" colors={[colors.bg.white]} />
 </ColorPalette>

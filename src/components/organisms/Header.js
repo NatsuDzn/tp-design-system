@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "../atoms/Button";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <HeaderWrapper>
-      <Button text={"Sign in"}></Button>
-      <Button text={"Sign up"}></Button>
+      <Link to="/">
+        <Button text={"Sign in"}></Button>
+      </Link>
+      <Link to="/register">
+        <Button text={"Sign up"}></Button>
+      </Link>
     </HeaderWrapper>
   );
 };
