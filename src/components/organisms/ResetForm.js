@@ -7,50 +7,48 @@ import { Text } from "../atoms/Text";
 import colors from "../../styles/colors";
 import space from "../../styles/space";
 
-export const LoginForm = () => {
+export const ResetForm = () => {
   const history = useHistory();
   const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [newPassword, setNewPassowrd] = useState(null);
   const [isFormDisabled, setIsFormDisabled] = useState(true);
   const [displayError, setDisplayError] = useState(false);
 
   useEffect(() => {
-    email && password ? setIsFormDisabled(false) : setIsFormDisabled(true);
-  }, [email, password]);
+    email && newPassword ? setIsFormDisabled(false) : setIsFormDisabled(true);
+  }, [email, newPassword]);
 
   const updateEmail = (value) => {
     setEmail(value);
   };
 
-  const updatePassword = (value) => {
-    setPassword(value);
+  const updateNewPassword = (value) => {
+    setNewPassowrd(value);
   };
 
-  const login = () => {
-    let user = {
-      email: email,
-      password: password,
-    };
+  const resetPassword = () => {
+    let userEmail = JSON.parse(localStorage.getItem("users")).email;
 
-    if (JSON.stringify(user) === localStorage.getItem("users")) {
-      setIsLoading(true);
-      setDisplayError(false);
-      setTimeout(() => {
-        history.push("/account");
-      }, 2000);
+    let newValue = {email: userEmail, password: newPassword}
+
+    if (userEmail === email) {
+      localStorage.setItem("users", JSON.stringify(newValue));
     } else {
       setDisplayError(true);
     }
   };
 
   return (
-    <LoginFormWrapper>
-      <Text tag="h2" color={colors.accent.base} text="Connectez-vous"></Text>
+    <ResetFormWrapper>
+      <Text
+        tag="h2"
+        color={colors.accent.base}
+        text="Réinitialisation du mot de passe"
+      ></Text>
       <Text
         tag="h4"
         color={colors.text.primary}
-        text="Nous sommes ravies que vous fassiez parti de notre team !"
+        text="Merci de saisir l'adresse mail de votre compte !"
       ></Text>
       <FormContainer>
         <Input
@@ -61,28 +59,21 @@ export const LoginForm = () => {
         />
         <Input
           type="password"
-          placeholder="Entrez votre mot de passe"
-          setChange={updatePassword}
-          isValid={password !== "" ? true : false}
+          placeholder="Entrez votre nouveau mot de passe"
+          setChange={updateNewPassword}
+          isValid={newPassword !== "" ? true : false}
         />
         <Button
-          text="Se connecter"
+          text="Réinitialiser le mot de passe"
           isPrimary="true"
           disabled={isFormDisabled}
-          isLoading={isLoading}
-          onClick={() => login()}
+          onClick={() => resetPassword()}
         ></Button>
-        <Text
-          tag="small"
-          color={colors.text.primary}
-          text="Vous avez perdu votre mot de passe ?"
-          onClick={() => history.push("/reset")}
-        ></Text>
         {displayError && (
           <Text
             tag="small"
-            color={colors.status.error}
-            text="Informations incorrect ! Réesayez ou cliquez sur sur 'Vous avez perdu votre mot de passe ?'"
+            color="red"
+            text="Aucune compte n'est lié avec cette adresse mail !"
             onClick={() => history.push("/reset")}
           ></Text>
         )}
@@ -100,11 +91,11 @@ export const LoginForm = () => {
           onClick={() => history.push("/register")}
         ></Button>
       </FormFooter>
-    </LoginFormWrapper>
+    </ResetFormWrapper>
   );
 };
 
-const LoginFormWrapper = styled.div`
+const ResetFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -134,4 +125,4 @@ const FormFooter = styled.div`
   margin-top: ${space.measurement.base}px;
 `;
 
-export default LoginForm;
+export default ResetForm;

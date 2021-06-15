@@ -1,9 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import font from "../../styles/font";
+import space from "../../styles/space";
 
-export const Text = ({ text, tag, color }) => {
-  return <TextWrapper tag={tag} color={color}>{text}</TextWrapper>;
+export const Text = ({ text, tag, color, onClick }) => {
+  return (
+    <TextWrapper tag={tag} color={color} onClick={onClick}>
+      {text}
+    </TextWrapper>
+  );
 };
 
 const TextWrapper = styled.span`
@@ -13,6 +18,8 @@ const TextWrapper = styled.span`
     prop.tag.startsWith("h") ? font.weight.bold : font.weight.regular};
   text-transform: ${(prop) => (prop.tag === "small" ? "uppercase" : "normal")};
   color: ${(prop) => prop.color};
+  text-align: center;
+  margin: ${space.measurement.xxs}px;
 `;
 
 function handleSize(tag) {

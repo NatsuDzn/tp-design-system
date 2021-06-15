@@ -6,13 +6,21 @@ import font from "../../styles/font";
 import space from "../../styles/space";
 import icons from "../../styles/icons";
 
-export const Button = ({ text, disabled, isPrimary, isLoading, icon }) => {
+export const Button = ({
+  text,
+  disabled,
+  isPrimary,
+  isLoading,
+  icon,
+  onClick,
+}) => {
   if (icon) {
     return (
       <ButtonStyled
         disabled={disabled}
         isPrimary={isPrimary}
         isLoading={isLoading}
+        onClick={onClick}
       >
         <Icon icon={handleIcon(icon)} />
         {text}
@@ -38,6 +46,7 @@ export const Button = ({ text, disabled, isPrimary, isLoading, icon }) => {
       disabled={disabled}
       isPrimary={isPrimary}
       isLoading={isLoading}
+      onClick={onClick}
     >
       {text}
     </ButtonStyled>

@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { LoginForm } from "../organisms/LoginForm";
+import colors from "../../styles/colors";
+import Text from "../atoms/Text";
 
-export const LoginPage = () => {
+export const AccountPage = () => {
   return (
     <Page>
-      <LoginForm />
+      <Text tag="h2" color={colors.status.ok} text="Welcome"></Text>
     </Page>
   );
 };
@@ -13,6 +14,9 @@ export const LoginPage = () => {
 const Page = styled.div`
   height: 100vh;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (min-width: 1440px) {
     width: 75%;
@@ -24,4 +28,4 @@ const Page = styled.div`
   }
 `;
 
-export default LoginPage;
+export default AccountPage;

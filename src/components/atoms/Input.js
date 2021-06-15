@@ -4,9 +4,14 @@ import space from "../../styles/space";
 import font from "../../styles/font";
 import colors from "../../styles/colors";
 
-export const Input = ({ type, placeholder, isValid }) => {
+export const Input = ({ type, placeholder, isValid, setChange }) => {
   return (
-    <InputWrapper type={type} placeholder={placeholder} isValid={isValid} />
+    <InputWrapper
+      type={type}
+      placeholder={placeholder}
+      isValid={isValid}
+      onChange={(event) => setChange(event.target.value)}
+    />
   );
 };
 
@@ -21,7 +26,9 @@ const InputWrapper = styled.input`
   border: 2px solid transparent;
   border-color: ${(prop) =>
     prop.isValid ? "transparent" : colors.status.error};
+  margin: ${space.measurement.base}px;
   transition: all 0.35s ease;
+  width: 100%;
 
   &:focus {
     box-shadow: 0 0 0 1px ${colors.accent.darker};

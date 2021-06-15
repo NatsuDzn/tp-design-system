@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { LoginForm } from "../organisms/LoginForm";
+import { ResetForm } from "../organisms/ResetForm";
 
-export const LoginPage = () => {
+export const ResetPage = () => {
   return (
     <Page>
-      <LoginForm />
+      <ResetForm />
     </Page>
   );
 };
@@ -24,4 +24,4 @@ const Page = styled.div`
   }
 `;
 
-export default LoginPage;
+export default ResetPage;
