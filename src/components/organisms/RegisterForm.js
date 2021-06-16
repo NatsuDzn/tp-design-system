@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { Input } from "../atoms/Input";
 import { Button } from "../atoms/Button";
+import { Label } from "../atoms/Label";
 import { Text } from "../atoms/Text";
 import colors from "../../styles/colors";
 import space from "../../styles/space";
@@ -12,11 +13,6 @@ export const RegisterForm = () => {
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const [isFormDisabled, setIsFormDisabled] = useState(true);
-
-  useEffect(() => {
-    email && password ? setIsFormDisabled(false) : setIsFormDisabled(true);
-  }, [email, password]);
 
   const updateEmail = (value) => {
     setEmail(value);
@@ -37,35 +33,42 @@ export const RegisterForm = () => {
 
   return (
     <RegisterFormWrapper>
-      <Text tag="h2" color={colors.accent.base} text="Inscrivez-vous"></Text>
-      <Text
-        tag="h4"
-        color={colors.text.primary}
-        text="Nous sommes ravies que vous fassiez parti de notre team !"
-      ></Text>
+      <Heading>
+        <Text tag="h1" color={colors.accent.base} text="Inscrivez-vous"></Text>
+        <Text
+          tag="h2"
+          color={colors.text.primary}
+          text="Nous sommes ravies que vous fassiez parti de notre team !"
+        ></Text>
+      </Heading>
       <FormContainer>
-        <Input
-          type="email"
-          placeholder="Entrez votre adresse mail"
-          setChange={updateEmail}
-          isValid={email !== "" ? true : false}
-        />
-        <Input
-          type="password"
-          placeholder="Entrez votre mot de passe"
-          setChange={updatePassword}
-          isValid={password !== "" ? true : false}
-        />
+        <Wrapper>
+          <Label label="Email" />
+          <Input
+            type="email"
+            placeholder="Entrez votre adresse mail"
+            setChange={updateEmail}
+            isValid={email !== "" ? true : false}
+          />
+        </Wrapper>
+        <Wrapper>
+          <Label label="Password" />
+          <Input
+            type="password"
+            placeholder="Entrez votre mot de passe"
+            setChange={updatePassword}
+            isValid={password !== "" ? true : false}
+          />
+        </Wrapper>
         <Button
           text="S'inscrire"
           isPrimary="true"
-          disabled={isFormDisabled}
           onClick={() => registerUser()}
         ></Button>
       </FormContainer>
       <FormFooter>
         <Text
-          tag="h4"
+          tag="h2"
           color={colors.text.primary}
           text="Vous avez déjà un compte ?"
         ></Text>
@@ -80,6 +83,13 @@ export const RegisterForm = () => {
   );
 };
 
+const Heading = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align: left;
+`;
+
 const RegisterFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -91,6 +101,12 @@ const RegisterFormWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     height: auto;
   }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const FormContainer = styled.div`

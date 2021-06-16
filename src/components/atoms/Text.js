@@ -16,7 +16,6 @@ const TextWrapper = styled.span`
   font-size: ${(prop) => handleSize(prop.tag)};
   font-weight: ${(prop) =>
     prop.tag.startsWith("h") ? font.weight.bold : font.weight.regular};
-  text-transform: ${(prop) => (prop.tag === "small" ? "uppercase" : "normal")};
   color: ${(prop) => prop.color};
   text-align: center;
   margin: ${space.measurement.xxs}px;
@@ -25,15 +24,13 @@ const TextWrapper = styled.span`
 function handleSize(tag) {
   switch (tag) {
     case "h1":
-      return `${font.size.xl}px`;
-    case "h2":
       return `${font.size.l}px`;
-    case "h3":
-      return `${font.size.m}px`;
-    case "h4":
+    case "h2":
       return `${font.size.s}px`;
     case "p":
       return `${font.size.text}px`;
+    case "btn":
+      return `${font.size.btn}px`;
     case "small":
       return `${font.size.mentions}px`;
     default:

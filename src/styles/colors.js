@@ -7,10 +7,11 @@ const colors = {
   status: {
     error: "#E4446D",
     ok: "#8ADD9C",
-    disabled: "#A8A8A8",
+    disabled: "#4E4949",
   },
   text: {
-    primary: "#434343",
+    primary: "#121861",
+    placeholder: "#434343",
     white: "#FFFFFF",
   },
   bg: {

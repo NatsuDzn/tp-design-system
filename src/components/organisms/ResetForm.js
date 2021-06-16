@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { Input } from "../atoms/Input";
 import { Button } from "../atoms/Button";
+import { Label } from "../atoms/Label";
 import { Text } from "../atoms/Text";
 import colors from "../../styles/colors";
 import space from "../../styles/space";
@@ -29,7 +30,7 @@ export const ResetForm = () => {
   const resetPassword = () => {
     let userEmail = JSON.parse(localStorage.getItem("users")).email;
 
-    let newValue = {email: userEmail, password: newPassword}
+    let newValue = { email: userEmail, password: newPassword };
 
     if (userEmail === email) {
       localStorage.setItem("users", JSON.stringify(newValue));
@@ -40,29 +41,37 @@ export const ResetForm = () => {
 
   return (
     <ResetFormWrapper>
-      <Text
-        tag="h2"
-        color={colors.accent.base}
-        text="Réinitialisation du mot de passe"
-      ></Text>
-      <Text
-        tag="h4"
-        color={colors.text.primary}
-        text="Merci de saisir l'adresse mail de votre compte !"
-      ></Text>
+      <Heading>
+        <Text
+          tag="h1"
+          color={colors.accent.base}
+          text="Réinitialisation du mot de passe"
+        ></Text>
+        <Text
+          tag="h2"
+          color={colors.text.primary}
+          text="Merci de saisir l'adresse mail de votre compte !"
+        ></Text>
+      </Heading>
       <FormContainer>
-        <Input
-          type="email"
-          placeholder="Entrez votre adresse mail"
-          setChange={updateEmail}
-          isValid={email !== "" ? true : false}
-        />
-        <Input
-          type="password"
-          placeholder="Entrez votre nouveau mot de passe"
-          setChange={updateNewPassword}
-          isValid={newPassword !== "" ? true : false}
-        />
+        <Wrapper>
+          <Label label="Email" />
+          <Input
+            type="email"
+            placeholder="Entrez votre adresse mail"
+            setChange={updateEmail}
+            isValid={email !== "" ? true : false}
+          />
+        </Wrapper>
+        <Wrapper>
+          <Label label="Password" />
+          <Input
+            type="password"
+            placeholder="Entrez votre nouveau mot de passe"
+            setChange={updateNewPassword}
+            isValid={newPassword !== "" ? true : false}
+          />
+        </Wrapper>
         <Button
           text="Réinitialiser le mot de passe"
           isPrimary="true"
@@ -80,7 +89,7 @@ export const ResetForm = () => {
       </FormContainer>
       <FormFooter>
         <Text
-          tag="h4"
+          tag="h2"
           color={colors.text.primary}
           text="Vous n'avez pas de compte ?"
         ></Text>
@@ -95,6 +104,13 @@ export const ResetForm = () => {
   );
 };
 
+const Heading = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align: left;
+`;
+
 const ResetFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -106,6 +122,12 @@ const ResetFormWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     height: auto;
   }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const FormContainer = styled.div`

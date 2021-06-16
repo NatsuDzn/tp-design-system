@@ -26,9 +26,9 @@ const InputWrapper = styled.input`
   border: 2px solid transparent;
   border-color: ${(prop) =>
     prop.isValid ? "transparent" : colors.status.error};
-  margin: ${space.measurement.base}px;
+  margin: ${space.measurement.base}px 0;
   transition: all 0.35s ease;
-  width: 100%;
+  width: auto;
 
   &:focus {
     box-shadow: 0 0 0 1px ${colors.accent.darker};
@@ -37,6 +37,7 @@ const InputWrapper = styled.input`
 
   &::placeholder {
     font-style: italic;
+    color: ${colors.text.placeholder};
   }
 `;
 
