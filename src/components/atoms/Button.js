@@ -60,7 +60,7 @@ const ButtonStyled = styled.button`
   outline: 0;
   border: 0;
   background: ${(prop) =>
-    prop.isPrimary ? colors.accent.base : "transparent"};
+    prop.isPrimary ? colors.accent.base : "white"};
   color: ${(prop) => (prop.isPrimary ? colors.text.white : colors.accent.base)};
   fill: ${(prop) => (prop.isPrimary ? colors.text.white : colors.accent.base)};
   padding: ${space.measurement.xs}px ${space.measurement.lg}px;

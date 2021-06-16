@@ -13,6 +13,7 @@ export const RegisterForm = () => {
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [displayError, setDisplayError] = useState(false);
 
   const updateEmail = (value) => {
     setEmail(value);
@@ -23,12 +24,19 @@ export const RegisterForm = () => {
   };
 
   const registerUser = () => {
-    let user = {
-      email: email,
-      password: password
+    if (
+      (email === null || password === null) ||
+      (email === "" || password === "")
+    ) {
+      setDisplayError(true);
+    } else {
+      let user = {
+        email: email,
+        password: password,
+      };
+      localStorage.setItem("users", JSON.stringify(user));
+      history.push("/");
     }
-    localStorage.setItem("users", JSON.stringify(user));
-    history.push("/")
   };
 
   return (
@@ -65,6 +73,13 @@ export const RegisterForm = () => {
           isPrimary="true"
           onClick={() => registerUser()}
         ></Button>
+        {displayError && (
+          <Text
+            tag="small"
+            color={colors.status.error}
+            text="Informations incorrect !"
+          ></Text>
+        )}
       </FormContainer>
       <FormFooter>
         <Text
@@ -75,7 +90,7 @@ export const RegisterForm = () => {
         <Text tag="h4" color={colors.accent.base} text="Connectez-vous"></Text>
         <Button
           text="Se connecter"
-          isPrimary="true"
+          isPrimary={false}
           onClick={() => history.push("/")}
         ></Button>
       </FormFooter>

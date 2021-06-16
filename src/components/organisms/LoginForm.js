@@ -99,7 +99,7 @@ export const LoginForm = () => {
         <Text tag="h4" color={colors.accent.base} text="Inscrivez-vous"></Text>
         <Button
           text="S'inscrire"
-          isPrimary="true"
+          isPrimary={false}
           onClick={() => history.push("/register")}
         ></Button>
       </FormFooter>
